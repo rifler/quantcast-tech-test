@@ -1,0 +1,33 @@
+{
+  "name": "quantcast-tech-test",
+  "version": "1.0.0",
+  "description": "quantcast tech test",
+  "main": "index.js",
+  "scripts": {
+    "build": "rollup -c --environment MODE:production",
+    "dev": "concurrently npm:dev:*",
+    "dev:server": "http-server . -p 80 -c-1",
+    "dev:build": "rollup -c -w",
+    "lint": "concurrently npm:lint:*",
+    "lint:code": "xo",
+    "lint:types": "tsc --noEmit",
+    "fix": "xo --fix",
+    "test": "jest"
+  },
+  "author": "Dmitrii Kanatnikov",
+  "license": "ISC",
+  "devDependencies": {
+    "@ampproject/rollup-plugin-closure-compiler": "0.27.0",
+    "@rollup/plugin-typescript": "8.5.0",
+    "@typescript-eslint/eslint-plugin": "5.38.1",
+    "@typescript-eslint/parser": "5.38.1",
+    "concurrently": "7.4.0",
+    "eslint": "8.24.0",
+    "eslint-config-xo": "0.42.0",
+    "eslint-config-xo-typescript": "0.53.0",
+    "http-server": "14.1.1",
+    "rollup": "2.79.1",
+    "typescript": "4.8.4",
+    "xo": "0.52.3"
+  }
+}
