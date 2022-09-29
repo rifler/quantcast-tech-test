@@ -13,6 +13,7 @@
     "lint:types": "tsc --noEmit",
     "fix": "xo --fix",
     "test": "jest",
+    "precommit": "concurrently npm:lint",
     "prepare": "husky install"
   },
   "author": "Dmitrii Kanatnikov",
