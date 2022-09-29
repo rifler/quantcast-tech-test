@@ -1,4 +1,4 @@
-hello
+<button id="test-new-jsengchallange-event">Send new "jsengchallange" for debug purpose</button>
 
 <script type="text/javascript">
     window.events = window.events || [];
@@ -15,4 +15,11 @@ hello
         "account": "jsengchallange",
         "labels": "_fp.event.PageView,_fp.event.Homepage"
     });
+
+    document.getElementById('test-new-jsengchallange-event').addEventListener('click', () => {
+        window.events.push({
+            "account": "jsengchallange",
+            "labels": "_fp.event.PageView,_fp.event.Homepage"
+        });
+    })
 </script>
