@@ -1,8 +1,21 @@
-## Quick start
+## Setup
 
 ```bash
-npm ci # once
-npm run dev
+nvm use
+npm ci
 ```
 
-This starts build in watch mode and simple http server
+## Quick start
+
+To run build in watch mode and simple http server:
+```bash
+npm run dev
+# then open http://challenge.local/
+```
+
+To check minified version, run:
+```bash
+MODE=production npm run dev
+# then open http://challenge.local/
+```
+
