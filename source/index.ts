@@ -14,15 +14,15 @@ function init() {
 
   window.QuantcastInternal.inited = true;
 
-  window.events = window.events || [];
+  window['events'] = window['events'] || [];
 
-  const {emitter} = arrayEventEmitter(window.events);
+  const {emitter} = arrayEventEmitter(window['events']);
 
   emitter.on('add', (event: Record<string, string>) => {
     console.log('new event value is pushed', event);
   });
 
-  for (const event of window.events) {
+  for (const event of window['events']) {
     console.log('one of initial event value', event);
   }
 }

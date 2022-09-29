@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/naming-convention */
 import process from 'node:process';
 
 import compiler from '@ampproject/rollup-plugin-closure-compiler';
@@ -10,7 +11,9 @@ const config = [{
   output: [{file: 'dist/measurement.js', format: 'iife'}],
   plugins: [
     typescript(),
-    isProductionMode && compiler(),
+    isProductionMode && compiler({
+      compilation_level: 'ADVANCED_OPTIMIZATIONS',
+    }),
   ],
 }];
 
