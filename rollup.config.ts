@@ -1,15 +1,17 @@
+import process from 'node:process';
+
 import compiler from '@ampproject/rollup-plugin-closure-compiler';
 import typescript from '@rollup/plugin-typescript';
 
-const isProductionMode = process.env.MODE === 'production'
+const isProductionMode = process.env.MODE === 'production';
 
 const config = [{
-	input: 'source/index.ts',
-	output: [{file: 'dist/measurement.js', format: 'iife'}],
-	plugins: [
-		typescript(),
-		isProductionMode && compiler(),
-	],
+  input: 'source/index.ts',
+  output: [{file: 'dist/measurement.js', format: 'iife'}],
+  plugins: [
+    typescript(),
+    isProductionMode && compiler(),
+  ],
 }];
 
 export default config;
