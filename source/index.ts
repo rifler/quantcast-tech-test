@@ -3,16 +3,16 @@ import {arrayEventEmitter} from '@/event-emitter/array-event-emitter';
 init();
 
 function init() {
-  window.QuantcastInternal = window.QuantcastInternal || {};
+  window['QuantcastInternal'] = window['QuantcastInternal'] || {};
   /**
    *
      * In case of `dist/measurement.js` installed more than once
      */
-  if (window.QuantcastInternal.inited) {
+  if (window['QuantcastInternal'].inited) {
     return;
   }
 
-  window.QuantcastInternal.inited = true;
+  window['QuantcastInternal'].inited = true;
 
   window['events'] = window['events'] || [];
 
