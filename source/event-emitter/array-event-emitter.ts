@@ -2,7 +2,13 @@
  * Override `push` and `unshift` methods to receive notifications that array is changed
  */
 
-import {EventEmitter} from '.';
+import {EventEmitter} from './event-emitter';
+
+const emitValues = (emitter: EventEmitter, data: any[]) => {
+  for (const datum of data) {
+    emitter.emit('add', datum);
+  }
+};
 
 export const arrayEventEmitter = (array: any[]) => {
   const emitter = new EventEmitter();
@@ -10,17 +16,13 @@ export const arrayEventEmitter = (array: any[]) => {
   const originalUnshift = array.unshift;
 
   array.push = function (...data: any[]) {
-    for (const datum of data) {
-      emitter.emit('add', datum);
-    }
+    emitValues(emitter, data);
 
     return originalPush.apply(this, data);
   };
 
   array.unshift = function (...data: any[]) {
-    for (const datum of data) {
-      emitter.emit('add', datum);
-    }
+    emitValues(emitter, data);
 
     return originalUnshift.apply(this, data);
   };

@@ -1,4 +1,4 @@
-import {arrayEventEmitter} from '@/event-emitter/array-event-emitter';
+import {arrayEventEmitter} from '@/event-emitter';
 
 init();
 
