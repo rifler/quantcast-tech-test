@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/consistent-type-definitions */
 declare interface Window {
-  events: any[];
+  events: unknown[];
   QuantcastInternal: {
     inited: boolean;
   };
