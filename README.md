@@ -46,6 +46,12 @@ For minification purposes.
 
 `compilation_level: 'ADVANCED_OPTIMIZATIONS'` setting is used, which includes property's mangling.
 
+Caution: this setting requires more careful attitude to reading user data and writing to request data.
+
+Brackets notation must be used to access properties, e.g. `userData['prop']` instead of `userData.prop`.
+
+Also, this requires excellent coverage by functional tests, see [More test](#more-tests) chapter.
+
 ### Transport
 In browser data can be sent in various ways - fetch, XHR, image, jsonp, sendBeacon.
 
