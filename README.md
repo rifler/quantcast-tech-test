@@ -27,6 +27,25 @@ npm run build
 
 ## Overview
 
+Entrypoint is `source/index.ts`
+
+### Tools
+**[TypeScript](https://www.typescriptlang.org/)**
+
+**[Rollup](https://rollupjs.org/)**
+
+For bundling modules together.
+
+This is a good solution for "libraries" because it produces zero-overhead in final bundle.
+
+On the another hand, Webpack is more preferable for "applications", because they are usually more complex and Webpack has more loaders, tools and bigger community.
+
+**[Google closure compiler](https://github.com/google/closure-compiler)**
+
+For minification purposes.
+
+`compilation_level: 'ADVANCED_OPTIMIZATIONS'` setting is used, which includes property's mangling.
+
 ### Transport
 In browser data can be sent in various ways - fetch, XHR, image, jsonp, sendBeacon.
 

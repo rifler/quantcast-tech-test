@@ -2,7 +2,7 @@
   "name": "quantcast-tech-test",
   "version": "1.0.0",
   "description": "quantcast tech test",
-  "main": "index.js",
+  "main": "source/index.ts",
   "scripts": {
     "build": "rollup -c --environment MODE:production",
     "dev": "concurrently npm:dev:*",

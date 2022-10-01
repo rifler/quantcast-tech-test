@@ -25,7 +25,7 @@ init();
 function init() {
   window['QuantcastInternal'] = window['QuantcastInternal'] || {};
   /**
-   * In case of `dist/measurement.js` installed more than once
+   * In case of `dist/measurement.js` installed more than once (by mistake)
    */
   if (window['QuantcastInternal'].inited) {
     return;
@@ -46,6 +46,10 @@ function sendEvent(event: unknown) {
   }
 }
 
+/**
+ * Subscribe to `push`/`unshift` actions on array and send data
+ * Also handle initial data stored in array
+ */
 function handleEventsChange(events: typeof window['events']) {
   const {emitter} = arrayEventEmitter(events);
 
