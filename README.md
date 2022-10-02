@@ -25,6 +25,14 @@ MODE=production npm run dev
 npm run build
 ```
 
+## Iframe examples
+
+http://challenge.local/ - simple page with installed tag
+
+http://challenge.local/iframe.html - first-party page without tag → first-party page with tag
+
+http://track.crossdomain.local/iframe-iframe.html - third-party page without tag → first-party page without tag → first-party page with tag
+
 ## Overview
 
 Entrypoint is `source/index.ts`

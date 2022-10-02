@@ -5,8 +5,8 @@ const getClosestWindow = () => {
   let currentWindow = window as Window; // Omit `& typeof globalThis`
 
   try {
-    if (window.top && window.top !== currentWindow) {
-      currentWindow = window.top;
+    if (window.parent && window.parent !== currentWindow && window.parent.location) {
+      currentWindow = window.parent;
     }
   } catch {}
 
