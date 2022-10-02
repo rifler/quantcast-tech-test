@@ -21,8 +21,11 @@
   "license": "ISC",
   "devDependencies": {
     "@ampproject/rollup-plugin-closure-compiler": "0.27.0",
+    "@rollup/plugin-inject": "4.0.4",
+    "@rollup/plugin-node-resolve": "14.1.0",
     "@rollup/plugin-typescript": "8.5.0",
     "@types/jest": "29.1.1",
+    "@types/promise-polyfill": "6.0.4",
     "@typescript-eslint/eslint-plugin": "5.38.1",
     "@typescript-eslint/parser": "5.38.1",
     "concurrently": "7.4.0",
