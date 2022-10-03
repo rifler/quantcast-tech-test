@@ -1,8 +1,7 @@
 import type {Middleware} from './types';
-import {generateFpa, cookieStorage} from '@/utils';
+import {generateFpa, cookieStorage, memoize} from '@/utils';
 
-// Todo memo
-const getFpa = () => {
+const getFpa = memoize(() => {
   const cookieValue = cookieStorage.get('fpa');
 
   if (cookieValue) {
@@ -24,7 +23,7 @@ const getFpa = () => {
     value: newValue,
     fpan: '0',
   };
-};
+});
 
 /**
  * Fpa - An random identifier to be used
@@ -32,6 +31,7 @@ const getFpa = () => {
  */
 export const fpaMiddleware: Middleware = context => {
   const fpa = getFpa();
+
   context.searchParams['fpa'] = fpa.value;
   context.searchParams['fpan'] = fpa.fpan;
 };

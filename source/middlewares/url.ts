@@ -1,7 +1,7 @@
 import type {Middleware} from './types';
+import {memoize} from '@/utils';
 
-// Todo memoize
-const getClosestWindow = () => {
+const getClosestWindow = memoize(() => {
   let currentWindow = window as Window; // Omit `& typeof globalThis`
 
   try {
@@ -11,7 +11,7 @@ const getClosestWindow = () => {
   } catch {}
 
   return currentWindow;
-};
+});
 
 /**
  * Ref - full url of the referrer page

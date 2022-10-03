@@ -4,6 +4,8 @@
  * And encapsulate logic over different storages like cookie/localstorage/indexeddb
  */
 
+import {memoize} from '@/utils/function';
+
 export const getCookie = (incomingName: string) => {
   const cookieArray = document.cookie.split(';');
 
@@ -85,8 +87,12 @@ const checkCookie = (domain?: string, path?: string) => {
   return hasCookie;
 };
 
-// Todo memo
-const getRootDomain = () => {
+/**
+ * Trying to find the most basic domain, e.g. for sub2.sub1.challenge.local it is challenge.local
+ *
+ * for sub2.sub1.challenge.com.tr it is challenge.com.tr, not com.tr
+ */
+const getRootDomain = memoize(() => {
   const parts = (window.location.host || '').split('.');
 
   if (parts.length === 1) {
@@ -105,7 +111,7 @@ const getRootDomain = () => {
 
     return result;
   }, '');
-};
+});
 
 export const createCookieStorage = (prefix = '_qntcst_') => {
   const rootDomain = getRootDomain();
@@ -119,7 +125,7 @@ export const createCookieStorage = (prefix = '_qntcst_') => {
       setCookie({
         ...options,
         name: `${prefix}${options.name}`,
-        domain: fullRootDomain,
+        domain: options.domain ?? fullRootDomain,
       });
     },
     get(name: string) {

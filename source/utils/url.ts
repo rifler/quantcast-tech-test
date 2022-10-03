@@ -1,8 +1,8 @@
 import {isNil} from '@/utils/assertion';
+import {memoize} from '@/utils/function';
 import {entries} from '@/utils/object';
 
-// Todo memo
-const getUrlParser = () => document.createElement('a');
+const getUrlParser = memoize(() => document.createElement('a'));
 
 export const parseUrl = (url: string) => {
   const parser = getUrlParser();
