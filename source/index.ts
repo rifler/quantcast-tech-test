@@ -3,7 +3,7 @@ import {accountMiddleware, fpaMiddleware, labelsMiddleware, randomMiddleware, ur
 import {beaconTransport, imageTransport} from '@/transports';
 import {createSender} from '@/sender';
 import {isPixelEvent, isExampleEvent} from '@/user-events';
-import {noop} from '@/utils';
+import {errorLogger} from '@/utils';
 
 const pixelSender = createSender({
   prefixUrl: 'https://pixel.quantserve.com/pixel',
@@ -40,9 +40,9 @@ function init() {
 
 function sendEvent(event: unknown) {
   if (isPixelEvent(event)) {
-    pixelSender(event).catch(noop);
+    pixelSender(event).catch(errorLogger('s.pxl'));
   } else if (isExampleEvent(event)) {
-    exampleSender(event).catch(noop);
+    exampleSender(event).catch(errorLogger('s.exmpl'));
   }
 }
 

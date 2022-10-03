@@ -17,6 +17,11 @@ export const createSender = (options: SenderOptions) => async (userEvent: unknow
     middlewareMaybePromises.push(middleware(newContext, userEvent));
   }
 
+  /**
+   * Todo: now middlewares are executed concurrently
+   * so middleware can not rely of previous middlewares result
+   * should refactor it to express.js style middlewares
+   */
   await Promise.allSettled(middlewareMaybePromises);
 
   Object.assign(parsedUrl.searchParams, newContext.searchParams);
