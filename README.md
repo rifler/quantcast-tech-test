@@ -75,6 +75,10 @@ Iterates over middlewares to collect and prepare data for request.
 
 Iterates over transports to find suitable one for sending data.
 
+### Current overhead
+In particular tech test current solution may seem a bit overhead, all this middlewares/transports/etc just to send simple request.
+I've tried to devise flexible architecture to make further development easier.
+
 ## Further improvements
 
 ### Versioning
