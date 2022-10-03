@@ -1,3 +1,4 @@
+import {isNil} from '@/utils/assertion';
 import {entries} from '@/utils/object';
 
 // Todo memo
@@ -45,7 +46,7 @@ export const serializeUrl = (parsedUrl: ReturnType<typeof parseUrl>) => {
   const search = [];
   if (parsedUrl.searchParams) {
     for (const [key, value] of entries(parsedUrl.searchParams)) {
-      if (key && value) {
+      if (key && !isNil(value) && value !== '') {
         search.push(`${encodeURIComponent(key)}=${encodeURIComponent(value)}`);
       }
     }
